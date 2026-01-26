@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <title>مشاريع الشركة</title>
+    <style>
+        :root {
+            --bg-color: #f4f6fb;
+            --card-bg: #ffffff;
+            --primary: #1f4f7f;
+            --primary-soft: #e3edf7;
+            --accent: #0a9f6c;
+            --text-main: #1f2933;
+            --text-muted: #6b7280;
+            --border-soft: #e5e7eb;
+            --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.08);
+            --radius-lg: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle at top, #e0ebff 0, #f4f6fb 45%, #f9fafb 100%);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .page-wrapper {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 16px 40px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        header h1 {
+            font-size: 26px;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        header p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            justify-content: space-between;
+            margin: 24px 0 16px;
+        }
+
+        .toolbar-left,
+        .toolbar-right {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 8px 32px 8px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--border-soft);
+            font-size: 13px;
+            min-width: 230px;
+            outline: none;
+            background-color: #f9fafb;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary);
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        .search-box span {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .status-pill {
+            padding: 5px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--border-soft);
+            background-color: #f9fafb;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .status-pill strong {
+            color: var(--primary);
+        }
+
+        .view-toggle button {
+            border-radius: 999px;
+            border: 1px solid var(--border-soft);
+            padding: 6px 12px;
+            background-color: #f9fafb;
+            color: var(--text-muted);
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .view-toggle button.active {
+            background-color: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+        }
+
+        .summary-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .summary-item {
+            flex: 1 1 160px;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 10px 14px;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+            border: 1px solid rgba(148, 163, 184, 0.25);
+        }
+
+        .summary-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+        }
+
+        .summary-value {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 14px 16px 12px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: "";
+            position: absolute;
+            top: -40px;
+            left: -40px;
+            width: 110px;
+            height: 110px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.06), transparent 65%);
+            opacity: 0.9;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+
+        .project-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .badge-status {
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 999px;
+            background-color: #ecfdf3;
+            color: var(--accent);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            white-space: nowrap;
+        }
+
+        .badge-status.on-hold {
+            background-color: #fef9c3;
+            color: #854d0e;
+            border-color: #fbbf24;
+        }
+
+        .badge-status.delivery {
+            background-color: #eff6ff;
+            color: #1d4ed8;
+            border-color: #93c5fd;
+        }
+
+        .project-body {
+            border-top: 1px dashed rgba(148, 163, 184, 0.5);
+            margin-top: 6px;
+            padding-top: 6px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-bottom: 2px;
+        }
+
+        .info-label {
+            color: var(--text-muted);
+        }
+
+        .info-value {
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px;
+            padding-top: 6px;
+            border-top: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .contract-value {
+            font-size: 13px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .contract-label {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .actions {
+            display: flex;
+            gap: 6px;
+        }
+
+        .btn {
+            border-radius: 999px;
+            border: none;
+            padding: 5px 10px;
+            font-size: 11px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-whatsapp {
+            background-color: #22c55e;
+            color: #ffffff;
+        }
+
+        .btn-whatsapp span.icon {
+            font-size: 13px;
+        }
+
+        .btn-more {
+            background-color: #eef2ff;
+            color: #4f46e5;
+        }
+
+        .empty-state {
+            text-align: center;
+            color: var(--text-muted);
+            padding: 40px 0;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .page-wrapper {
+                margin-top: 24px;
+            }
+
+            header h1 {
+                font-size: 22px;
+            }
+
+            .toolbar {
+                align-items: flex-start;
+            }
+
+            .search-box input {
+                width: 100%;
+            }
+
+            .project-card {
+                padding: 12px 12px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+    <header>
+        <h1>لوحة مشاريع الشركة</h1>
+        <p>عرض مبسط يساعد المدير على الوصول السريع لمدير المشروع وبيانات العقد.</p>
+    </header>
+
+    <div class="toolbar">
+        <div class="toolbar-left">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="بحث باسم المشروع أو مدير المشروع..." />
+                <span>🔍</span>
+            </div>
+            <div class="status-pill">
+                إجمالي المشاريع: <strong id="totalCount">0</strong> | مجموع العقود: <strong id="totalValue">0</strong> ريال
+            </div>
+        </div>
+        <div class="toolbar-right">
+            <div class="view-toggle">
+                <button class="active">عرض البطاقات</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="summary-bar">
+        <div class="summary-item">
+            <div class="summary-label">أعلى قيمة عقد</div>
+            <div class="summary-value" id="maxContract">0 ريال</div>
+        </div>
+        <div class="summary-item">
+            <div class="summary-label">أقل قيمة عقد</div>
+            <div class="summary-value" id="minContract">0 ريال</div>
+        </div>
+        <div class="summary-item">
+            <div class="summary-label">متوسط قيمة العقود</div>
+            <div class="summary-value" id="avgContract">0 ريال</div>
+        </div>
+    </div>
+
+    <div id="projectsContainer" class="content-grid"></div>
+    <div id="emptyState" class="empty-state" style="display: none;">
+        لا توجد نتائج مطابقة لبحثك حاليًا.
+    </div>
+</div>
+
+<script>
+    const projects = [
+        {
+            name: "استكمال إسكان موظفي مستشفى المواساة ( المدينة)",
+            manager: "رامي عيد عبد الهادي",
+            phone: "0541168948",
+            value: 49432843.15,
+            status: "قيد التنفيذ"
+        },
+        {
+            name: "إنشاء مشروع المبنى السكني لموظفي المواساة (ينبع)",
+            manager: "احمد قاعود محمد",
+            phone: "0507768409",
+            value: 31003934.45,
+            status: "قيد التنفيذ"
+        },
+        {
+            name: "استكمال تنفيذ انشاء مقر نادي الشرق الدلم",
+            manager: "منصور علي أبو اليمين حنفي",
+            phone: "0502751043",
+            value: 53010770.50,
+            status: "قيد التنفيذ"
+        },
+        {
+            name: "استكمال أعمال مبنى الدوائر الحكومية بميناء الملك عبدالعزيز بالدمام",
+            manager: "محمود فياض",
+            phone: "0594118590",
+            value: 4801169.50,
+            status: "قيد التنفيذ"
+        },
+        {
+            name: "تطوير قاعة الكتب النادرة وقاعة مكتبة المسجد النبوي",
+            manager: "محمد مصطفى محمد",
+            phone: "0548242049",
+            value: 2293991.25,
+            status: "قيد التنفيذ"
+        },
+        {
+            name: "تأهيل المبنى الجنوبي رقم (6) بالمسجد النبوي",
+            manager: "محمد مصطفى محمد",
+            phone: "0548242049",
+            value: 4972723.63,
+            status: "قيد التنفيذ"
+        },
+        {
+            name: "استكمال انشاء مقر نادي العرض بالقويعية",
+            manager: "أحمد يوسف عزيز",
+            phone: "0564517322",
+            value: 55888358.89,
+            status: "قيد التنفيذ"
+        },
+        {
+            name: "خدمات إدارة وصيانة المرافق والنظافة والتشغيل نادي الصقور",
+            manager: "عبدالرحمن صبحي",
+            phone: "0580774713",
+            value: 15745800.00,
+            status: "قيد التنفيذ"
+        },
+        {
+            name: "مشروع خادم الحرمين الشريفين للترجمة الفورية بالمسجد النبوي",
+            manager: "محمد مصطفى محمد",
+            phone: "0548242049",
+            value: 10429358.29,
+            status: "قيد التنفيذ"
+        },
+        {
+            name: "تطوير أنظمة الأمن والسلامة ومناطق الحريق لمستشفى الأمير عبدالمحسن بالعلا",
+            manager: "محمود حبيب",
+            phone: "0550835925",
+            value: 4495033.75,
+            status: "جاري الاستكمال بعد التوقف"
+        },
+        {
+            name: "تأهيل جامع عائشة الراجحي مكة وملحقاته - مكة المكرمة",
+            manager: "مصطفى خضر",
+            phone: "0568846328",
+            value: 6058269.00,
+            status: "مرحلة التسليم الابتدائي"
+        },
+        {
+            name: "العقد الموحد لصيانة الوحدات السكنية (جميع مناطق المملكة)",
+            manager: "محمود سعيد",
+            phone: "0582985458",
+            value: 18090247.50,
+            status: "قيد التنفيذ"
+        },
+        {
+            name: "ورشة صيانة المعدات بمطار الدمام GSE Workshop",
+            manager: "محمد السحراوي",
+            phone: "0550758051",
+            value: 25300000.00,
+            status: "مرحلة استخراج التصاريح وانشاء السور المؤقت"
+        },
+        {
+            name: "اتفاقية ترميم وتطوير المباني الإدارية والمرافق العامة",
+            manager: "محمود نصر",
+            phone: "0568958968",
+            value: 32652599.97,
+            status: "قيد التنفيذ"
+        },
+        {
+            name: "إنشاء عدد 2 غرف توزيع الكهرباء بمطار الدوادمي",
+            manager: "جاري",
+            phone: "",
+            value: 997673.88,
+            status: "قيد التنفيذ"
+        },
+        {
+            name: "توريد وتركيب حوامل الكابلات برؤى المدينة",
+            manager: "عبدالرحمن زهران",
+            phone: "0508335348",
+            value: 18000000,
+            status: "قيد التنفيذ"
+        },
+        {
+            name: "أنظمة الأمن والسلامة وتركيب الكاميرات لمبنى الإمارة ومجمع التشغيل والصيانة والمستودعات بالمنطقة الصناعية",
+            manager: "علاء الدين عيد زينهم",
+            phone: "0596206318",
+            value: 6459561.50,
+            status: "قيد التنفيذ"
+        },
+        {
+            name: "احلال وتحديث أنظمة ومتطلبات أعمال السلامة الامانة العامة هيئة المهندسين",
+            manager: "أحمد حمدي",
+            phone: "0548910320",
+            value: 4593197.75,
+            status: "قيد التنفيذ"
+        },
+        {
+            name: "أعمال تحسينات عامة تشطيب في الأمانة العامة للهيئة السعودية للمهندسين",
+            manager: "أحمد حمدي",
+            phone: "0548910320",
+            value: 803217.50,
+            status: "قيد التنفيذ"
+        },
+        {
+            name: "توريد وتركيب نظام انذار الحريق في المبنى الشرقي بمستشفى الملك فهد بجدة",
+            manager: "",
+            phone: "",
+            value: 787102.32,
+            status: "في انتظار توقيع العقد"
+        },
+        {
+            name: "صيانة أنظمة السلامة بجامعة نايف العربية للعلوم الأمنية",
+            manager: "محمد عطوان",
+            phone: "0597859521",
+            value: 807300.00,
+            status: "قيد التنفيذ"
+        },
+        {
+            name: "اتفاقية صيانة أنظمة الإنذار والحريق بالقطاع الشمالي الغربي",
+            manager: "محمد قاعود محمد",
+            phone: "0503061789",
+            value: 4854207.50,
+            status: "قيد التنفيذ"
+        },
+        {
+            name: "توريد وتركيب نظام مكافحة الحريق في عيادة الرعاية الأولية في المدينة المنورة التابعة للشؤون الصحية بوزارة الحرس الوطني",
+            manager: "اسلام طه",
+            phone: "0568238216",
+            value: 2582095.00,
+            status: "قيد التنفيذ"
+        },
+        {
+            name: "مشروع تطوير وتجديد المناطق المشتركة لأبراج التعاونية",
+            manager: "",
+            phone: "",
+            value: 2633195.30,
+            status: "قيد التنفيذ"
+        }
+    ];
+
+    function formatCurrency(value) {
+        return value.toLocaleString("ar-EG", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }) + " ريال";
+    }
+
+    function getStatusClass(status) {
+        if (status.includes("التسليم")) return "badge-status delivery";
+        if (status.includes("توقف")) return "badge-status on-hold";
+        if (status.includes("توقيع العقد")) return "badge-status on-hold";
+        return "badge-status";
+    }
+
+    function renderProjects(list) {
+        const container = document.getElementById("projectsContainer");
+        const emptyState = document.getElementById("emptyState");
+        container.innerHTML = "";
+
+        if (!list.length) {
+            emptyState.style.display = "block";
+            return;
+        } else {
+            emptyState.style.display = "none";
+        }
+
+        list.forEach((p) => {
+            const card = document.createElement("div");
+            card.className = "project-card";
+
+            card.innerHTML = `
+                <div class="project-header">
+                    <div class="project-title">${p.name}</div>
+                    <div class="${getStatusClass(p.status)}">${p.status}</div>
+                </div>
+                <div class="project-body">
+                    <div class="info-row">
+                        <div class="info-label">مدير المشروع</div>
+                        <div class="info-value">${p.manager || "-"}</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">رقم الجوال</div>
+                        <div class="info-value">${p.phone || "-"}</div>
+                    </div>
+                </div>
+                <div class="project-footer">
+                    <div>
+                        <div class="contract-label">قيمة العقد</div>
+                        <div class="contract-value">${formatCurrency(p.value)}</div>
+                    </div>
+                    <div class="actions">
+                        ${
+                            p.phone
+                                ? `<button class="btn btn-whatsapp" onclick="openWhatsApp('${p.phone}', '${p.name}')">
+                                       <span class="icon">💬</span> واتساب
+                                   </button>`
+                                : ""
+                        }
+                        <button class="btn btn-more">تفاصيل</button>
+                    </div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    function openWhatsApp(phone, projectName) {
+        const msg = encodeURIComponent("مرحبًا، بخصوص مشروع: " + projectName);
+        const url = "https://wa.me/" + phone.replace(/^0+/, "") + "?text=" + msg;
+        window.open(url, "_blank");
+    }
+
+    function updateSummary(list) {
+        const totalCount = list.length;
+        const totalValue = list.reduce((sum, p) => sum + (p.value || 0), 0);
+        const values = list.map((p) => p.value || 0).filter((v) => v > 0);
+
+        document.getElementById("totalCount").textContent = totalCount;
+        document.getElementById("totalValue").textContent = formatCurrency(totalValue);
+
+        if (values.length) {
+            const max = Math.max(...values);
+            const min = Math.min(...values);
+            const avg = values.reduce((s, v) => s + v, 0) / values.length;
+
+            document.getElementById("maxContract").textContent = formatCurrency(max);
+            document.getElementById("minContract").textContent = formatCurrency(min);
+            document.getElementById("avgContract").textContent = formatCurrency(avg);
+        }
+    }
+
+    function setupSearch() {
+        const input = document.getElementById("searchInput");
+        input.addEventListener("input", () => {
+            const q = input.value.trim().toLowerCase();
+            const filtered = projects.filter((p) => {
+                return (
+                    p.name.toLowerCase().includes(q) ||
+                    p.manager.toLowerCase().includes(q)
+                );
+            });
+            renderProjects(filtered);
+            updateSummary(filtered);
+        });
+    }
+
+    renderProjects(projects);
+    updateSummary(projects);
+    setupSearch();
+</script>
+</body>
+</html>
