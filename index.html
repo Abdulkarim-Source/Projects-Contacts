@@ -1,651 +1,454 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8" />
-    <title>مشاريع الشركة</title>
-    <style>
-        :root {
-            --bg-color: #f4f6fb;
-            --card-bg: #ffffff;
-            --primary: #1f4f7f;
-            --primary-soft: #e3edf7;
-            --accent: #0a9f6c;
-            --text-main: #1f2933;
-            --text-muted: #6b7280;
-            --border-soft: #e5e7eb;
-            --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.08);
-            --radius-lg: 14px;
-        }
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"><title>لوحة مشاريع الشركة</title><style>:root{--bg:#FFFFFF;--card:#FFFFFF;--primary:#305c43;--accent:#ec8737;--text:#1A1A1A;--muted:#1A1A1A;--border:#E0E0E0;--radius:18px;--shadow:0 10px 30px rgba(15,23,42,.06);}body.dark{--bg:#1A1A1A;--card:#2A2A2A;--primary:#ec8737;--accent:#ec8737;--text:#fff;--muted:#ccc;--border:#444;}body.dark{--bs-body-bg:#1A1A1A;--bs-body-color:#fff;--bs-border-color:#444;}.btn-outline-primary,.btn-outline-secondary{border-width:2px;border-radius:10px;}body.dark .contract-box{background-color:var(--card);color:var(--text);border:1px solid var(--border);}.site-header{background:var(--primary);color:#fff;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;}.header-center{flex:1;text-align:center;display:flex;flex-direction:column;align-items:center;}.header-actions{display:flex;justify-content:center;align-items:center;gap:10px;margin-top:10px;direction:ltr;flex-direction:row;}.header-actions .icon-btn{width:50px;height:50px;padding:0;flex:0 0 50px;display:inline-flex;align-items:center;justify-content:center;}.header-actions #langFlag{width:28px;height:20px;display:block;object-fit:cover;}.btn{flex:1;padding:10px;border-radius:12px;border:none;...}.actions .btn{flex:1;padding:10px;border-radius:12px;border:none;cursor:pointer;font-size:13px;font-weight:600;transition:.3s;}.icon-btn{width:50px;height:50px;padding:0;border-width:2px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;}.icon-btn img{width:28px;height:20px;display:block;object-fit:cover;}.site-footer{background:#f9fafb;color:var(--muted);padding:10px 16px;font-size:12px;text-align:center;border-top:1px solid var(--border);}*{box-sizing:border-box;margin:0;padding:0;font-family:"Segoe UI",Tahoma,Arial,sans-serif;}body{background:var(--bg);color:var(--text);line-height:1.6;}.page-wrapper{max-width:1500px;width:100%;margin:24px auto;padding:0 40px 60px;}@media (max-width:768px){.page-wrapper{padding:0 24px 40px;}@media(min-width:640px){.summary-bar{grid-template-columns:repeat(3,1fr);}.content-grid{grid-template-columns:repeat(2,1fr);}}@media(min-width:1024px){.content-grid{grid-template-columns:repeat(3,1fr);}}@media (min-width:1200px){.project-title{font-size:16px;}.info-row{font-size:14px;}.contract-value{font-size:20px;}.summary-value{font-size:20px;}}@media(min-width:1400px){.content-grid{grid-template-columns:repeat(4,1fr);}}}.toolbar{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;margin-bottom:20px;}.search-box{position:relative;}.search-box input{padding:10px 36px 10px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card);min-width:240px;font-size:14px;outline:none;transition:.3s;}.search-box input:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(48,92,67,.1);}.search-box span{position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--muted);}.status-pill{font-size:13px;color:var(--muted);}.status-pill strong{color:var(--primary);}.summary-bar{display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:24px;}.summary-item{background:var(--card);border:1px solid rgba(236,135,55,.35);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);}.summary-label{font-size:12px;color:var(--muted);margin-bottom:6px;}.summary-value{font-size:18px;font-weight:700;color:var(--primary);}.content-grid{display:grid;grid-template-columns:1fr;gap:20px;}@media(min-width:640px){.summary-bar{grid-template-columns:repeat(3,1fr);}.content-grid{grid-template-columns:repeat(2,1fr);}}@media(min-width:1024px){.content-grid{grid-template-columns:repeat(3,1fr);}}@media(min-width:1400px){.content-grid{grid-template-columns:repeat(4,1fr);}}.project-card{background:var(--card);border-radius:var(--radius);padding:22px;border:1px solid rgba(236,135,55,.35);box-shadow:var(--shadow);transition:.3s;display:flex;flex-direction:column;gap:14px;}.project-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(15,23,42,.1);}.project-header{display:flex;justify-content:space-between;align-items:center;gap:12px;}.project-title{font-weight:600;font-size:15px;flex:1;}.project-image-wrapper{width:70px;height:70px;border-radius:16px;overflow:hidden;border:1px solid rgba(236,135,55,.35);cursor:pointer;transition:.3s;background:#FFFFFF;display:flex;align-items:center;justify-content:center;position:relative;}.project-image-wrapper:hover{transform:scale(1.05);}.project-image-wrapper img{width:100%;height:100%;object-fit:cover;}.initials{display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-weight:700;font-size:22px;color:var(--primary);position:absolute;}.info-row{display:flex;justify-content:space-between;font-size:13px;}.info-label{color:var(--muted);}.info-value{font-weight:500;}.contract-box{background:#FFFFFF;border:1px solid rgba(236,135,55,.35);border-radius:12px;padding:12px;text-align:center;}.contract-label{font-size:12px;color:var(--muted);}.contract-value{font-size:18px;font-weight:800;color:var(--accent);}.actions{display:flex;gap:10px;}.btn{flex:1;padding:10px;border-radius:12px;border:none;cursor:pointer;font-size:13px;font-weight:600;transition:.3s;}.btn-call{background:#ec8737;color:#FFFFFF;}.call-icon{color:#fff;}.btn-whatsapp{background:var(--primary);color:#FFFFFF;}.btn:hover{transform:translateY(-2px);}.btn-details{background:#FFFFFF;color:var(--text);border:1px solid var(--border);margin-top:6px;width:100%;}.image-modal-backdrop{display:none;position:fixed;inset:0;background:rgba(15,23,42,.7);justify-content:center;align-items:center;z-index:1000;}.image-modal-content img{max-width:90vw;max-height:90vh;}.lang-btn{background:#ec8737;color:#fff;font-weight:700;border-radius:14px;}.lang-btn img{width:20px;height:14px;vertical-align:middle;}.search-box{flex:1;min-width:0;}.search-box input{width:100%;min-width:0;}.content-grid{display:grid;gap:20px;grid-template-columns:repeat(4,minmax(280px,1fr));}@media (max-width:1200px){.content-grid{grid-template-columns:repeat(3,minmax(260px,1fr));}}@media (max-width:900px){.content-grid{grid-template-columns:repeat(2,minmax(240px,1fr));}}@media (max-width:560px){.content-grid{grid-template-columns:1fr;}}.content-grid{display:grid;gap:22px;grid-template-columns:1fr;}@media (min-width:720px){.content-grid{grid-template-columns:repeat(2,minmax(320px,1fr));}}@media (min-width:1100px){.content-grid{grid-template-columns:repeat(3,minmax(320px,1fr));}}@media (min-width:1500px){.content-grid{grid-template-columns:repeat(4,minmax(340px,1fr));}}#mainTitle{font-size:clamp(22px,2.2vw,34px);line-height:1.15;}#mainSubtitle{font-size:clamp(12px,1.1vw,15px);}.project-title{font-size:clamp(14px,1.1vw,16px);}.contract-value{font-size:clamp(16px,1.3vw,20px);}.summary-value{font-size:clamp(18px,1.3vw,22px);}}.page-wrapper{margin-inline:48px;padding:0 16px 60px;}.search-box{flex:1 1 100%;min-width:0;}.search-box input{width:100%;min-width:0;}@media (min-width:992px){.search-box{flex:0 0 25%;max-width:25%;}}</style></head><body><div class="site-header"><div class="header-center"><h1 id="mainTitle">لوحة مشاريع الشركة</h1><p id="mainSubtitle">عرض حديث وسريع لمديري المشاريع وقيم العقود</p><div class="header-actions"><button id="langToggle" class="btn btn-outline-primary icon-btn" type="button"><img id="langFlag" src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_the_United_Kingdom.svg" alt="Flag"></button><button id="themeToggle" class="btn btn-outline-secondary icon-btn" type="button"><i id="themeIcon" class="bi bi-sun-fill" style="font-size:20px;"></i></button></div></div></div><div class="page-wrapper"><div class="toolbar"><div class="search-box"><input type="text" id="searchInput" placeholder="بحث باسم المشروع أو المدير..." /><span>🔍</span></div><div class="status-pill"><span id="totalProjectsLabel"></span>: <strong id="totalCount">0</strong> | <span id="totalContractsLabel"></span>: <strong id="totalValue">0</strong></div></div><div class="summary-bar"><div class="summary-item"><div class="summary-label" id="maxContractLabel"></div><div class="summary-value" id="maxContract">0</div></div><div class="summary-item"><div class="summary-label" id="minContractLabel"></div><div class="summary-value" id="minContract">0</div></div><div class="summary-item"><div class="summary-label" id="avgContractLabel"></div><div class="summary-value" id="avgContract">0</div></div></div><div id="projectsContainer" class="content-grid"></div><div id="emptyState" style="display:none;text-align:center;margin-top:30px;color:var(--muted);">
+لا توجد نتائج مطابقة
+</div></div><div id="imageModal" class="image-modal-backdrop" onclick="closeImageModal(event)"><div class="image-modal-content"><img id="imageModalImg" src="" /></div></div><div class="site-footer"> © 2026 شركة بشائر البناء للمقاولات – جميع الحقوق محفوظة
+</div><script>const i18n = {
+  ar: {
+    lang: "ar",
+    dir: "rtl",
+    title: "لوحة مشاريع الشركة",
+    subtitle: "عرض حديث وسريع لمديري المشاريع وقيم العقود",
+    searchPlaceholder: "بحث باسم المشروع أو المدير...",
+    totalProjects: "إجمالي المشاريع",
+    totalContracts: "مجموع العقود",
+    maxContract: "أعلى قيمة عقد",
+    minContract: "أقل قيمة عقد",
+    avgContract: "متوسط قيمة العقود",
+    managerLabel: "مدير المشروع",
+    contractLabel: "قيمة العقد",
+    callBtn: "اتصال",
+    whatsappBtn: "💬 واتساب",
+    noResults: "لا توجد نتائج مطابقة"
+  },
+  en: {
+    lang: "en",
+    dir: "ltr",
+    title: "Company Projects Dashboard",
+    subtitle: "Quick overview of project managers and contract values",
+    searchPlaceholder: "Search by project or manager...",
+    totalProjects: "Total Projects",
+    totalContracts: "Total Contracts",
+    maxContract: "Max Contract Value",
+    minContract: "Min Contract Value",
+    avgContract: "Average Contract Value",
+    managerLabel: "Project Manager",
+    contractLabel: "Contract Value",
+    callBtn: "Call",
+    whatsappBtn: "💬 WhatsApp",
+    noResults: "No matching results"
+  }
+};
+let currentLang = localStorage.getItem("selectedLang") || "ar";
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: "Segoe UI", Tahoma, Arial, sans-serif;
-        }
+function setLanguage(lang) {
+  currentLang = lang;
 
-        body {
-            background: radial-gradient(circle at top, #e0ebff 0, #f4f6fb 45%, #f9fafb 100%);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
+  localStorage.setItem("selectedLang", lang);
 
-        .page-wrapper {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 16px 40px;
-        }
+  const texts = i18n[lang];
 
-        header {
-            text-align: center;
-            margin-bottom: 24px;
-        }
+  document.documentElement.lang = texts.lang;
+  document.documentElement.dir = texts.dir;
 
-        header h1 {
-            font-size: 26px;
-            color: var(--primary);
-            letter-spacing: 0.5px;
-            margin-bottom: 6px;
-        }
+  document.querySelector(".site-header h1").textContent = texts.title;
+  document.querySelector(".site-header p").textContent = texts.subtitle;
+  document.getElementById("searchInput").placeholder = texts.searchPlaceholder;
 
-        header p {
-            font-size: 14px;
-            color: var(--text-muted);
-        }
+  document.querySelectorAll(".summary-item")[0]
+    .querySelector(".summary-label").textContent = texts.maxContract;
 
-        .toolbar {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            align-items: center;
-            justify-content: space-between;
-            margin: 24px 0 16px;
-        }
+  document.querySelectorAll(".summary-item")[1]
+    .querySelector(".summary-label").textContent = texts.minContract;
 
-        .toolbar-left,
-        .toolbar-right {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            align-items: center;
-        }
+  document.querySelectorAll(".summary-item")[2]
+    .querySelector(".summary-label").textContent = texts.avgContract;
 
-        .search-box {
-            position: relative;
-        }
+  document.getElementById("totalProjectsLabel").textContent = texts.totalProjects;
+  document.getElementById("totalContractsLabel").textContent = texts.totalContracts;
 
-        .search-box input {
-            padding: 8px 32px 8px 10px;
-            border-radius: 999px;
-            border: 1px solid var(--border-soft);
-            font-size: 13px;
-            min-width: 230px;
-            outline: none;
-            background-color: #f9fafb;
-        }
+  document.getElementById("langFlag").src = (lang === "ar")
+    ? "https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg"
+    : "https://upload.wikimedia.org/wikipedia/commons/0/0d/Flag_of_Saudi_Arabia.svg";
 
-        .search-box input:focus {
-            border-color: var(--primary);
-            background-color: #ffffff;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-        }
+  renderProjects(projects);
+  updateSummary(projects);
+}
 
-        .search-box span {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 14px;
-            color: var(--text-muted);
-        }
+const managerImages = {
+    "رامي عيد عبد الهادي": "https://raw.githubusercontent.com/Abdulkarim-Source/Projects-Contacts/refs/heads/main/رامي-عيد-عبد-الهادي.jpg",
+    "احمد قاعود محمد": "https://raw.githubusercontent.com/Abdulkarim-Source/Projects-Contacts/refs/heads/main/احمد-قاعود-محمد.jpg",
+    "أحمد حمدي": "https://raw.githubusercontent.com/Abdulkarim-Source/Projects-Contacts/refs/heads/main/أحمد-حمدي.jpg",
+    "أحمد فوزي": "https://raw.githubusercontent.com/Abdulkarim-Source/Projects-Contacts/refs/heads/main/أحمد-فوزي.jpg",
+    "اسلام طه ": "https://raw.githubusercontent.com/Abdulkarim-Source/Projects-Contacts/refs/heads/main/اسلام-طه.jpg",
+    "عبدالرحمن زهران": "https://raw.githubusercontent.com/Abdulkarim-Source/Projects-Contacts/refs/heads/main/عبدالرحمن-زهران.jpg",
+    "عبدالرحمن صبحي": "https://raw.githubusercontent.com/Abdulkarim-Source/Projects-Contacts/refs/heads/main/عبدالرحمن-صبحي.jpg",
+    "محمد جمال السبروط": "https://raw.githubusercontent.com/Abdulkarim-Source/Projects-Contacts/refs/heads/main/محمد-جمال-السبروط.jpg",
+    "محمد قاعود محمد": "https://raw.githubusercontent.com/Abdulkarim-Source/Projects-Contacts/refs/heads/main/محمد-قاعود.jpg",
+    "محمود حبيب": "https://raw.githubusercontent.com/Abdulkarim-Source/Projects-Contacts/refs/heads/main/محمود-حبيب.jpg",
+    "محمود نصر": "https://raw.githubusercontent.com/Abdulkarim-Source/Projects-Contacts/refs/heads/main/محمود-نصر.jpg",
+    "مصطفى خضر": "https://raw.githubusercontent.com/Abdulkarim-Source/Projects-Contacts/refs/heads/main/مصطفى-خضر.jpg",
+    "طارق نجاتي": "https://raw.githubusercontent.com/Abdulkarim-Source/Projects-Contacts/refs/heads/main/طارق-نجاتي.jpg",
+    "محمد السحراوي": "https://raw.githubusercontent.com/Abdulkarim-Source/Projects-Contacts/refs/heads/main/محمد-السحراوي.jpg",
+    "منصور علي": "https://raw.githubusercontent.com/Abdulkarim-Source/Projects-Contacts/refs/heads/main/منصور-علي.jpg",
+    "محمود سعيد": "https://raw.githubusercontent.com/Abdulkarim-Source/Projects-Contacts/refs/heads/main/محمود-سعيد.jpg",
+    "محمد عطوان": "https://raw.githubusercontent.com/Abdulkarim-Source/Projects-Contacts/refs/heads/main/محمد-عطوان.jpg",
+    "محمود فياض": "https://raw.githubusercontent.com/Abdulkarim-Source/Projects-Contacts/refs/heads/main/محمود-فياض.jpg"
+};
 
-        .status-pill {
-            padding: 5px 10px;
-            border-radius: 999px;
-            border: 1px solid var(--border-soft);
-            background-color: #f9fafb;
-            font-size: 12px;
-            color: var(--text-muted);
-        }
+const projects = [
+  {
+    names: { ar: "استكمال إسكان موظفي مستشفى المواساة ( المدينة)", en: "Completion of the Staff Housing for Al-Mouwasat Hospital (Madinah)" },
+    managers: { ar: "رامي عيد عبد الهادي", en: "Rami Eid Abdulhadi" },
+    phone: "541168948",
+    value: 49432843.15
+  },
+  {
+    names: { ar: "إنشاء مشروع المبنى السكني لموظفي المواساة (ينبع)", en: "Construction of the Staff Residential Building Project for Al-Mouwasat (Yanbu)" },
+    managers: { ar: "احمد قاعود محمد", en: "Ahmed Qaoud Mohammed" },
+    phone: "507768409",
+    value: 31003934.45
+  },
+  {
+    names: { ar: "استكمال تنفيذ انشاء مقر نادي الشرق الدلم", en: "Completion of Construction Works for the Headquarters of Al-Sharq Club, Al-Dilam" },
+    managers: { ar: "منصور علي", en: "Mansour Ali" },
+    phone: "502751043",
+    value: 53010770.50
+  },
+  {
+    names: { ar: "استكمال أعمال مبنى الدوائر الحكومية بميناء الملك عبدالعزيز بالدمام", en: "Completion of Works for the Government Departments Building at King Abdulaziz Port, Dammam" },
+    managers: { ar: "محمود فياض", en: "Mahmoud Fayyad" },
+    phone: "594118590",
+    value: 4801169.50
+  },
+  {
+    names: { ar: "تطوير قاعة الكتب النادرة وقاعة مكتبة المسجد النبوي", en: "Upgrading of the Rare Books Hall and the Library Hall at Al-Masjid an-Nabawi (Prophet's Mosque)" },
+    managers: { ar: "محمد جمال السبروط", en: "Mohammed Jamal Al-Sabroot" },
+    phone: "594109443",
+    value: 2293991.25
+  },
+  {
+    names: { ar: "تأهيل المبنى الجنوبي رقم (6) بالمسجد النبوي", en: "Rehabilitation of the Southern Building No. (6) at Al-Masjid an-Nabawi (Prophet's Mosque)" },
+    managers: { ar: "محمد جمال السبروط", en: "Mohammed Jamal Al-Sabroot" },
+    phone: "594109443",
+    value: 4972723.63
+  },
+  {
+    names: { ar: "استكمال انشاء مقر نادي العرض بالقويعية", en: "Completion of Construction of the Headquarters of Al-Ard Club, Al-Quway'iyah" },
+    managers: { ar: "محمود زين", en: "Mahmoud Zain" },
+    phone: "501793455",
+    value: 55888358.89
+  },
+  {
+    names: { ar: "خدمات إدارة وصيانة المرافق والنظافة والتشغيل نادي الصقور", en: "Facility Management and Maintenance, Cleaning, and Operation Services for Nadi Al Suqoor (Falcon Club)" },
+    managers: { ar: "عبدالرحمن صبحي", en: "Abdulrahman Sobhi" },
+    phone: "580774713",
+    value: 15745800.00
+  },
+  {
+    names: { ar: "مشروع خادم الحرمين الشريفين للترجمة الفورية بالمسجد النبوي", en: "Custodian of the Two Holy Mosques Project for Simultaneous Interpretation at Al-Masjid an-Nabawi (Prophet's Mosque)" },
+    managers: { ar: "محمد جمال السبروط", en: "Mohammed Jamal Al-Sabroot" },
+    phone: "594109443",
+    value: 10429358.29
+  },
+  {
+    names: { ar: "تأهيل وتجهيز مراكز خدمة العملاء التابعة لامانة منطقة المدينة المنورة", en: "Rehabilitation and Fit-Out of Customer Service Centers under the Al Madinah Region Municipality" },
+    managers: { ar: "أحمد فوزي", en: "Ahmed Fawzi" },
+    phone: "555024947",
+    value: 2913238.00
+  },
+  {
+    names: { ar: "تطوير أنظمة الأمن والسلامة ومناطق الحريق لمستشفى الأمير عبدالمحسن بالعلا", en: "Upgrade of Security and Safety Systems and Fire Zones for Prince Abdulmohsen Hospital, AlUla" },
+    managers: { ar: "محمود حبيب", en: "Mahmoud Habib" },
+    phone: "550835925",
+    value: 4495033.75
+  },
+  {
+    names: { ar: "تأهيل جامع عائشة الراجحي مكة وملحقاته - مكة المكرمة", en: "Rehabilitation of Aisha Al Rajhi Mosque, Makkah, and its Ancillary Facilities - Makkah Al Mukarramah" },
+    managers: { ar: "مصطفى خضر", en: "Mostafa Khodr" },
+    phone: "568846328",
+    value: 6058269.00
+  },
+  {
+    names: { ar: "العقد الموحد لصيانة الوحدات السكنية (جميع مناطق المملكة)", en: "Unified Contract for Maintenance of Residential Units (All Regions of the Kingdom)" },
+    managers: { ar: "محمود سعيد", en: "Mahmoud Saeed" },
+    phone: "582985458",
+    value: 18090247.50
+  },
+  {
+    names: { ar: "ورشة صيانة المعدات بمطار الدمام GSE Workshop", en: "Equipment Maintenance Workshop at Dammam Airport (GSE Workshop)" },
+    managers: { ar: "محمد السحراوي", en: "Mohammed Al-Sahrawi" },
+    phone: "550758051",
+    value: 25300000.00
+  },
+  {
+    names: { ar: "اتفاقية ترميم وتطوير المباني الإدارية والمرافق العامة", en: "Agreement for Restoration and Upgrading of Administrative Buildings and Public Facilities" },
+    managers: { ar: "محمود نصر", en: "Mahmoud Nasr" },
+    phone: "568958968",
+    value: 32652599.97
+  },
+  {
+    names: { ar: "إستكمال إنشاء مبنى العمادات المساندة", en: "Completion of Construction of the Supporting Deanships Building" },
+    managers: { ar: "أحمد فوزي", en: "Ahmed Fawzi" },
+    phone: "555024947",
+    value: 56899685.05
+  },
+  {
+    names: { ar: "إنشاء عدد 2 غرف توزيع الكهرباء بمطار الدوادمي", en: "Construction of 2 Electrical Distribution Rooms at Al-Dawadmi Airport" },
+    managers: { ar: "أحمد حمدي", en: "Ahmed Hamdy" },
+    phone: "548910320",
+    value: 997673.88
+  },
+  {
+    names: { ar: "توريد وتركيب حوامل الكابلات برؤى المدينة ", en: "Supply and Installation of Cable Trays at Ru'a Al Madinah" },
+    managers: { ar: "عبدالرحمن زهران", en: "Abdulrahman Zahran" },
+    phone: "508335348",
+    value: 16438997.00
+  },
+  {
+    names: { ar: "مشروع تنفيذ عبارات لتصريف مياه الامطار بأرض حرس الحدود بمنطقة الرياض ( حرس الحدود )", en: "Project for Construction of Box Culverts for Stormwater Drainage at the Border Guard Site in the Riyadh Region (Border Guard)" },
+    managers: { ar: "", en: "" },
+    phone: "",
+    value: 494502.88
+  },
+  {
+    names: { ar: "أنظمة الأمن والسلامة وتركيب الكاميرات لمبنى الإمارة ومجمع التشغيل والصيانة والمستودعات بالمنطقة الصناعية", en: "Security and Safety Systems and CCTV Installation for the Emirate Building, the Operation and Maintenance Complex, and Warehouses in the Industrial Area" },
+    managers: { ar: "طارق نجاتي", en: "Tarek Najati" },
+    phone: "596206318",
+    value: 6459561.50
+  },
+  {
+    names: { ar: "احلال وتحديث أنظمة ومتطلبات أعمال السلامة الامانة العامة هيئة المهندسين", en: "Replacement and Upgrading of Safety Systems and Works Requirements for the General Secretariat, Saudi Council of Engineers" },
+    managers: { ar: "أحمد حمدي", en: "Ahmed Hamdy" },
+    phone: "548910320",
+    value: 4593197.75
+  },
+  {
+    names: { ar: "أعمال تحسينات عامة تشطيب في الأمانة العامة للهيئة السعودية للمهندسين", en: "General Improvement and Finishing Works at the General Secretariat of the Saudi Council of Engineers" },
+    managers: { ar: "أحمد حمدي", en: "Ahmed Hamdy" },
+    phone: "548910320",
+    value: 803217.50
+  },
+  {
+    names: { ar: "توريد وتركيب نظام انذار الحريق في المبنى الشرقي بمستشفى الملك فهد بجدة", en: "Supply and Installation of a Fire Alarm System in the Eastern Building at King Fahd Hospital, Jeddah" },
+    managers: { ar: "محمد عطوان", en: "Mohammed Atwan" },
+    phone: "5978 9521",
+    value: 787102.32
+  },
+  {
+    names: { ar: "صيانة أنظمة السلامة بجامعة نايف العربية للعلوم الأمنية", en: "Maintenance of Safety Systems at Naif Arab University for Security Sciences" },
+    managers: { ar: "محمد عطوان", en: "Mohammed Atwan" },
+    phone: "5978 9521",
+    value: 807300.00
+  },
+  {
+    names: { ar: "اتفاقية صيانة أنظمة الإنذار والحريق بالقطاع الشمالي الغربي", en: "Maintenance Agreement for Fire Alarm and Firefighting Systems in the Northwestern Sector" },
+    managers: { ar: "محمد قاعود محمد", en: "Mohammed Qaoud Mohammed" },
+    phone: "503061789",
+    value: 4854207.50
+  },
+  {
+    names: { ar: "توريد وتركيب نظام مكافحة الحريق في عيادة الرعاية الأولية في المدينة المنورة التابعة للشؤون الصحية بوزارة الحرس الوطني", en: "Supply and Installation of a Firefighting System at the Primary Health Care Clinic in Al Madinah Al Munawwarah, affiliated with the Health Affairs, Ministry of the National Guard" },
+    managers: { ar: "اسلام طه ", en: "Islam Taha" },
+    phone: "568238216",
+    value: 2582095.00
+  },
+  {
+    names: { ar: "مشروع تطوير وتجديد المناطق المشتركة لأبراج التعاونية", en: "Project for Upgrading and Renovation of the Common Areas of Al-Taawunia Towers" },
+    managers: { ar: "محمد عطوان", en: "Mohammed Atwan" },
+    phone: "5978 9521",
+    value: 2633195.25
+  }
+];
 
-        .status-pill strong {
-            color: var(--primary);
-        }
+projects.forEach(p => {
+    p.managers.ar = p.managers.ar ? p.managers.ar.trim() : "";
+    p.managers.en = p.managers.en ? p.managers.en.trim() : "";
 
-        .view-toggle button {
-            border-radius: 999px;
-            border: 1px solid var(--border-soft);
-            padding: 6px 12px;
-            background-color: #f9fafb;
-            color: var(--text-muted);
-            font-size: 12px;
-            cursor: pointer;
-        }
+p.phone = p.phone ? p.phone.replace(/\\s+/g,'') : "";
+});
 
-        .view-toggle button.active {
-            background-color: var(--primary);
-            color: #ffffff;
-            border-color: var(--primary);
-        }
+function getManagerImage(name) {
+    return managerImages[name] || "";
+}
 
-        .summary-bar {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 18px;
-        }
+function getInitials(name) {
+    if (!name) return "";
+    const parts = name.trim().split(" ");
+    return parts.length === 1 ? parts[0].charAt(0) : parts[0].charAt(0) + parts[1].charAt(0);
+}
 
-        .summary-item {
-            flex: 1 1 160px;
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 10px 14px;
-            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
-            border: 1px solid rgba(148, 163, 184, 0.25);
-        }
+function formatCurrency(value) {
+    const locale = currentLang === 'ar' ? 'ar-SA' : 'en-US';
+    const currencyText = currentLang === 'ar' ? ' ريال' : ' SAR';
+    return value.toLocaleString(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + currencyText;
+}
 
-        .summary-label {
-            font-size: 11px;
-            color: var(--text-muted);
-            margin-bottom: 2px;
-        }
+function renderProjects(list) {
+  const container = document.getElementById("projectsContainer");
+  const emptyState = document.getElementById("emptyState");
+  container.innerHTML = "";
 
-        .summary-value {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--primary);
-        }
+  if (!list.length) {
+    emptyState.style.display = "block";
+    return;
+  }
+  emptyState.style.display = "none";
 
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 16px;
-        }
+  list.forEach((p) => {
 
-        .project-card {
-            background-color: var(--card-bg);
-            border-radius: var(--radius-lg);
-            padding: 14px 16px 12px;
-            box-shadow: var(--shadow-soft);
-            border: 1px solid rgba(148, 163, 184, 0.35);
-            position: relative;
-            overflow: hidden;
-        }
+    const managerNameAr = (p.managers?.ar || "").trim();
 
-        .project-card::before {
-            content: "";
-            position: absolute;
-            top: -40px;
-            left: -40px;
-            width: 110px;
-            height: 110px;
-            background: radial-gradient(circle, rgba(37, 99, 235, 0.06), transparent 65%);
-            opacity: 0.9;
-        }
+    const managerNameUI = (p.managers?.[currentLang] || "").trim();
 
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-            margin-bottom: 6px;
-        }
+    const imgUrl = getManagerImage(managerNameAr);
+    const initials = getInitials(managerNameAr);
 
-        .project-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--primary);
-        }
+    const card = document.createElement("div");
+    card.className = "project-card";
 
-        .badge-status {
-            font-size: 11px;
-            padding: 3px 8px;
-            border-radius: 999px;
-            background-color: #ecfdf3;
-            color: var(--accent);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            white-space: nowrap;
-        }
-
-        .badge-status.on-hold {
-            background-color: #fef9c3;
-            color: #854d0e;
-            border-color: #fbbf24;
-        }
-
-        .badge-status.delivery {
-            background-color: #eff6ff;
-            color: #1d4ed8;
-            border-color: #93c5fd;
-        }
-
-        .project-body {
-            border-top: 1px dashed rgba(148, 163, 184, 0.5);
-            margin-top: 6px;
-            padding-top: 6px;
-        }
-
-        .info-row {
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            margin-bottom: 2px;
-        }
-
-        .info-label {
-            color: var(--text-muted);
-        }
-
-        .info-value {
-            color: var(--text-main);
-            font-weight: 500;
-        }
-
-        .project-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 8px;
-            padding-top: 6px;
-            border-top: 1px solid rgba(226, 232, 240, 0.8);
-        }
-
-        .contract-value {
-            font-size: 13px;
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .contract-label {
-            font-size: 11px;
-            color: var(--text-muted);
-        }
-
-        .actions {
-            display: flex;
-            gap: 6px;
-        }
-
-        .btn {
-            border-radius: 999px;
-            border: none;
-            padding: 5px 10px;
-            font-size: 11px;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .btn-whatsapp {
-            background-color: #22c55e;
-            color: #ffffff;
-        }
-
-        .btn-whatsapp span.icon {
-            font-size: 13px;
-        }
-
-        .btn-more {
-            background-color: #eef2ff;
-            color: #4f46e5;
-        }
-
-        .empty-state {
-            text-align: center;
-            color: var(--text-muted);
-            padding: 40px 0;
-            font-size: 14px;
-        }
-
-        @media (max-width: 600px) {
-            .page-wrapper {
-                margin-top: 24px;
-            }
-
-            header h1 {
-                font-size: 22px;
-            }
-
-            .toolbar {
-                align-items: flex-start;
-            }
-
-            .search-box input {
-                width: 100%;
-            }
-
-            .project-card {
-                padding: 12px 12px 10px;
-            }
-        }
-    </style>
-</head>
-<body>
-<div class="page-wrapper">
-    <header>
-        <h1>لوحة مشاريع الشركة</h1>
-        <p>عرض مبسط يساعد المدير على الوصول السريع لمدير المشروع وبيانات العقد.</p>
-    </header>
-
-    <div class="toolbar">
-        <div class="toolbar-left">
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="بحث باسم المشروع أو مدير المشروع..." />
-                <span>🔍</span>
-            </div>
-            <div class="status-pill">
-                إجمالي المشاريع: <strong id="totalCount">0</strong> | مجموع العقود: <strong id="totalValue">0</strong> ريال
-            </div>
+    card.innerHTML = `
+      <div class="project-header">
+        <div class="project-title">${p.names[currentLang] || ""}</div>
+        <div class="project-image-wrapper" ${imgUrl ? `onclick="openImageModal('${imgUrl}')"` : ""}>
+          ${
+            imgUrl
+              ? `<img src="${imgUrl}" alt="${managerNameUI || managerNameAr}" onerror="this.style.display='none';">`
+              : `<div class="initials">${initials}</div>`
+          }
         </div>
-        <div class="toolbar-right">
-            <div class="view-toggle">
-                <button class="active">عرض البطاقات</button>
-            </div>
-        </div>
-    </div>
+      </div>
 
-    <div class="summary-bar">
-        <div class="summary-item">
-            <div class="summary-label">أعلى قيمة عقد</div>
-            <div class="summary-value" id="maxContract">0 ريال</div>
-        </div>
-        <div class="summary-item">
-            <div class="summary-label">أقل قيمة عقد</div>
-            <div class="summary-value" id="minContract">0 ريال</div>
-        </div>
-        <div class="summary-item">
-            <div class="summary-label">متوسط قيمة العقود</div>
-            <div class="summary-value" id="avgContract">0 ريال</div>
-        </div>
-    </div>
+      <div class="info-row">
+        <div class="info-label">${i18n[currentLang].managerLabel}</div>
+        <div class="info-value">${managerNameUI || "-"}</div>
+      </div>
 
-    <div id="projectsContainer" class="content-grid"></div>
-    <div id="emptyState" class="empty-state" style="display: none;">
-        لا توجد نتائج مطابقة لبحثك حاليًا.
-    </div>
-</div>
+      <div class="contract-box">
+        <div class="contract-label">${i18n[currentLang].contractLabel}</div>
+        <div class="contract-value">${formatCurrency(p.value)}</div>
+      </div>
 
-<script>
-    const projects = [
-        {
-            name: "استكمال إسكان موظفي مستشفى المواساة ( المدينة)",
-            manager: "رامي عيد عبد الهادي",
-            phone: "0541168948",
-            value: 49432843.15,
-            status: "قيد التنفيذ"
-        },
-        {
-            name: "إنشاء مشروع المبنى السكني لموظفي المواساة (ينبع)",
-            manager: "احمد قاعود محمد",
-            phone: "0507768409",
-            value: 31003934.45,
-            status: "قيد التنفيذ"
-        },
-        {
-            name: "استكمال تنفيذ انشاء مقر نادي الشرق الدلم",
-            manager: "منصور علي أبو اليمين حنفي",
-            phone: "0502751043",
-            value: 53010770.50,
-            status: "قيد التنفيذ"
-        },
-        {
-            name: "استكمال أعمال مبنى الدوائر الحكومية بميناء الملك عبدالعزيز بالدمام",
-            manager: "محمود فياض",
-            phone: "0594118590",
-            value: 4801169.50,
-            status: "قيد التنفيذ"
-        },
-        {
-            name: "تطوير قاعة الكتب النادرة وقاعة مكتبة المسجد النبوي",
-            manager: "محمد مصطفى محمد",
-            phone: "0548242049",
-            value: 2293991.25,
-            status: "قيد التنفيذ"
-        },
-        {
-            name: "تأهيل المبنى الجنوبي رقم (6) بالمسجد النبوي",
-            manager: "محمد مصطفى محمد",
-            phone: "0548242049",
-            value: 4972723.63,
-            status: "قيد التنفيذ"
-        },
-        {
-            name: "استكمال انشاء مقر نادي العرض بالقويعية",
-            manager: "أحمد يوسف عزيز",
-            phone: "0564517322",
-            value: 55888358.89,
-            status: "قيد التنفيذ"
-        },
-        {
-            name: "خدمات إدارة وصيانة المرافق والنظافة والتشغيل نادي الصقور",
-            manager: "عبدالرحمن صبحي",
-            phone: "0580774713",
-            value: 15745800.00,
-            status: "قيد التنفيذ"
-        },
-        {
-            name: "مشروع خادم الحرمين الشريفين للترجمة الفورية بالمسجد النبوي",
-            manager: "محمد مصطفى محمد",
-            phone: "0548242049",
-            value: 10429358.29,
-            status: "قيد التنفيذ"
-        },
-        {
-            name: "تطوير أنظمة الأمن والسلامة ومناطق الحريق لمستشفى الأمير عبدالمحسن بالعلا",
-            manager: "محمود حبيب",
-            phone: "0550835925",
-            value: 4495033.75,
-            status: "جاري الاستكمال بعد التوقف"
-        },
-        {
-            name: "تأهيل جامع عائشة الراجحي مكة وملحقاته - مكة المكرمة",
-            manager: "مصطفى خضر",
-            phone: "0568846328",
-            value: 6058269.00,
-            status: "مرحلة التسليم الابتدائي"
-        },
-        {
-            name: "العقد الموحد لصيانة الوحدات السكنية (جميع مناطق المملكة)",
-            manager: "محمود سعيد",
-            phone: "0582985458",
-            value: 18090247.50,
-            status: "قيد التنفيذ"
-        },
-        {
-            name: "ورشة صيانة المعدات بمطار الدمام GSE Workshop",
-            manager: "محمد السحراوي",
-            phone: "0550758051",
-            value: 25300000.00,
-            status: "مرحلة استخراج التصاريح وانشاء السور المؤقت"
-        },
-        {
-            name: "اتفاقية ترميم وتطوير المباني الإدارية والمرافق العامة",
-            manager: "محمود نصر",
-            phone: "0568958968",
-            value: 32652599.97,
-            status: "قيد التنفيذ"
-        },
-        {
-            name: "إنشاء عدد 2 غرف توزيع الكهرباء بمطار الدوادمي",
-            manager: "جاري",
-            phone: "",
-            value: 997673.88,
-            status: "قيد التنفيذ"
-        },
-        {
-            name: "توريد وتركيب حوامل الكابلات برؤى المدينة",
-            manager: "عبدالرحمن زهران",
-            phone: "0508335348",
-            value: 18000000,
-            status: "قيد التنفيذ"
-        },
-        {
-            name: "أنظمة الأمن والسلامة وتركيب الكاميرات لمبنى الإمارة ومجمع التشغيل والصيانة والمستودعات بالمنطقة الصناعية",
-            manager: "علاء الدين عيد زينهم",
-            phone: "0596206318",
-            value: 6459561.50,
-            status: "قيد التنفيذ"
-        },
-        {
-            name: "احلال وتحديث أنظمة ومتطلبات أعمال السلامة الامانة العامة هيئة المهندسين",
-            manager: "أحمد حمدي",
-            phone: "0548910320",
-            value: 4593197.75,
-            status: "قيد التنفيذ"
-        },
-        {
-            name: "أعمال تحسينات عامة تشطيب في الأمانة العامة للهيئة السعودية للمهندسين",
-            manager: "أحمد حمدي",
-            phone: "0548910320",
-            value: 803217.50,
-            status: "قيد التنفيذ"
-        },
-        {
-            name: "توريد وتركيب نظام انذار الحريق في المبنى الشرقي بمستشفى الملك فهد بجدة",
-            manager: "",
-            phone: "",
-            value: 787102.32,
-            status: "في انتظار توقيع العقد"
-        },
-        {
-            name: "صيانة أنظمة السلامة بجامعة نايف العربية للعلوم الأمنية",
-            manager: "محمد عطوان",
-            phone: "0597859521",
-            value: 807300.00,
-            status: "قيد التنفيذ"
-        },
-        {
-            name: "اتفاقية صيانة أنظمة الإنذار والحريق بالقطاع الشمالي الغربي",
-            manager: "محمد قاعود محمد",
-            phone: "0503061789",
-            value: 4854207.50,
-            status: "قيد التنفيذ"
-        },
-        {
-            name: "توريد وتركيب نظام مكافحة الحريق في عيادة الرعاية الأولية في المدينة المنورة التابعة للشؤون الصحية بوزارة الحرس الوطني",
-            manager: "اسلام طه",
-            phone: "0568238216",
-            value: 2582095.00,
-            status: "قيد التنفيذ"
-        },
-        {
-            name: "مشروع تطوير وتجديد المناطق المشتركة لأبراج التعاونية",
-            manager: "",
-            phone: "",
-            value: 2633195.30,
-            status: "قيد التنفيذ"
-        }
-    ];
+      <div class="actions">
+        <button class="btn btn-call" onclick="${p.phone ? `callManager('${p.phone}')` : ""}">
+          <i class="bi bi-telephone-fill call-icon"></i> ${i18n[currentLang].callBtn}
+        </button>
+        <button class="btn btn-whatsapp" onclick="${p.phone ? `openWhatsApp('${p.phone}','${(p.names[currentLang] || "").replace(/'/g, "\\\\'")}')` : ""}">
+          ${i18n[currentLang].whatsappBtn}
+        </button>
+      </div>
+    `;
 
-    function formatCurrency(value) {
-        return value.toLocaleString("ar-EG", {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-        }) + " ريال";
+    container.appendChild(card);
+  });
+}
+
+function callManager(phone) {
+
+    let cleanedPhone = phone.replace(/\\D/g, "");
+
+    if (cleanedPhone.startsWith("5")) {
+        cleanedPhone = "0" + cleanedPhone;
     }
 
-    function getStatusClass(status) {
-        if (status.includes("التسليم")) return "badge-status delivery";
-        if (status.includes("توقف")) return "badge-status on-hold";
-        if (status.includes("توقيع العقد")) return "badge-status on-hold";
-        return "badge-status";
+    if (!cleanedPhone.startsWith("05")) {
+        alert("الرقم غير صالح للاتصال المباشر بالسعودية: " + phone);
+        return;
     }
 
-    function renderProjects(list) {
-        const container = document.getElementById("projectsContainer");
-        const emptyState = document.getElementById("emptyState");
-        container.innerHTML = "";
+    window.location.href = "tel:" + cleanedPhone;
+}
 
-        if (!list.length) {
-            emptyState.style.display = "block";
-            return;
-        } else {
-            emptyState.style.display = "none";
-        }
+function openWhatsApp(phone, projectName) {
+    const msg = encodeURIComponent("السلام عليكم، بخصوص مشروع: " + projectName);
 
-        list.forEach((p) => {
-            const card = document.createElement("div");
-            card.className = "project-card";
+    let cleanedPhone = phone.replace(/\\D/g, "");
 
-            card.innerHTML = `
-                <div class="project-header">
-                    <div class="project-title">${p.name}</div>
-                    <div class="${getStatusClass(p.status)}">${p.status}</div>
-                </div>
-                <div class="project-body">
-                    <div class="info-row">
-                        <div class="info-label">مدير المشروع</div>
-                        <div class="info-value">${p.manager || "-"}</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">رقم الجوال</div>
-                        <div class="info-value">${p.phone || "-"}</div>
-                    </div>
-                </div>
-                <div class="project-footer">
-                    <div>
-                        <div class="contract-label">قيمة العقد</div>
-                        <div class="contract-value">${formatCurrency(p.value)}</div>
-                    </div>
-                    <div class="actions">
-                        ${
-                            p.phone
-                                ? `<button class="btn btn-whatsapp" onclick="openWhatsApp('${p.phone}', '${p.name}')">
-                                       <span class="icon">💬</span> واتساب
-                                   </button>`
-                                : ""
-                        }
-                        <button class="btn btn-more">تفاصيل</button>
-                    </div>
-                </div>
-            `;
-            container.appendChild(card);
-        });
+    if (cleanedPhone.startsWith("0")) {
+        cleanedPhone = cleanedPhone.substring(1);
     }
 
-    function openWhatsApp(phone, projectName) {
-        const msg = encodeURIComponent("مرحبًا، بخصوص مشروع: " + projectName);
-        const url = "https://wa.me/" + phone.replace(/^0+/, "") + "?text=" + msg;
-        window.open(url, "_blank");
+    if (!cleanedPhone.startsWith("966")) {
+        cleanedPhone = "966" + cleanedPhone;
     }
 
-    function updateSummary(list) {
-        const totalCount = list.length;
-        const totalValue = list.reduce((sum, p) => sum + (p.value || 0), 0);
-        const values = list.map((p) => p.value || 0).filter((v) => v > 0);
+    const url = "https://wa.me/" + cleanedPhone + "?text=" + msg;
+    window.open(url, "_blank");
+}
 
-        document.getElementById("totalCount").textContent = totalCount;
-        document.getElementById("totalValue").textContent = formatCurrency(totalValue);
+function updateSummary(list) {
+    const totalCount = list.length;
+    const totalValue = list.reduce((sum, p) => sum + (p.value || 0), 0);
+    const values = list.filter(p => p.value > 0).map(p => p.value);
 
-        if (values.length) {
-            const max = Math.max(...values);
-            const min = Math.min(...values);
-            const avg = values.reduce((s, v) => s + v, 0) / values.length;
+    document.getElementById("totalCount").textContent = totalCount;
+    document.getElementById("totalValue").textContent = formatCurrency(totalValue);
 
-            document.getElementById("maxContract").textContent = formatCurrency(max);
-            document.getElementById("minContract").textContent = formatCurrency(min);
-            document.getElementById("avgContract").textContent = formatCurrency(avg);
-        }
+    if (values.length) {
+        const max = Math.max(...values);
+        const min = Math.min(...values);
+        const avg = values.reduce((s, v) => s + v, 0) / values.length;
+
+        document.getElementById("maxContract").textContent = formatCurrency(max);
+        document.getElementById("minContract").textContent = formatCurrency(min);
+        document.getElementById("avgContract").textContent = formatCurrency(avg);
     }
+}
 
-    function setupSearch() {
-        const input = document.getElementById("searchInput");
-        input.addEventListener("input", () => {
-            const q = input.value.trim().toLowerCase();
-            const filtered = projects.filter((p) => {
-                return (
-                    p.name.toLowerCase().includes(q) ||
-                    p.manager.toLowerCase().includes(q)
-                );
-            });
-            renderProjects(filtered);
-            updateSummary(filtered);
-        });
+function setupSearch() {
+    document.getElementById("searchInput").addEventListener("input", (e) => {
+        const q = e.target.value.trim().toLowerCase();
+const filtered = projects.filter(p =>
+  (p.names[currentLang] || "").toLowerCase().includes(q) ||
+  (p.managers[currentLang] || "").toLowerCase().includes(q)
+);
+        renderProjects(filtered);
+        updateSummary(filtered);
+    });
+}
+
+function openImageModal(src) {
+    const modal = document.getElementById("imageModal");
+    document.getElementById("imageModalImg").src = src;
+    modal.style.display = "flex";
+}
+function closeImageModal(event) {
+  if (event.target.id === "imageModal") {
+    const modal = document.getElementById("imageModal");
+    const img = document.getElementById("imageModalImg");
+    img.src = "";
+    modal.style.display = "none";
+  }
+}
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        const modal = document.getElementById("imageModal");
+        modal.style.display = "none";
+        document.getElementById("imageModalImg").src = "";
     }
+});
 
-    renderProjects(projects);
-    updateSummary(projects);
-    setupSearch();
-</script>
-</body>
-</html>
+let isDark = localStorage.getItem("selectedTheme") === "dark";
+
+document.getElementById("langToggle").addEventListener("click", () => {
+  setLanguage(currentLang === "ar" ? "en" : "ar");
+});
+
+document.getElementById("themeToggle").addEventListener("click", () => {
+  isDark = !isDark;
+
+  document.body.classList.toggle("dark", isDark);
+  document.getElementById("themeIcon").className =
+    isDark ? "bi bi-moon-fill" : "bi bi-sun-fill";
+
+  localStorage.setItem("selectedTheme", isDark ? "dark" : "light");
+});
+
+if (isDark) {
+  document.body.classList.add("dark");
+  document.getElementById("themeIcon").className = "bi bi-moon-fill";
+}
+
+updateSummary(projects);
+setupSearch();
+setLanguage(currentLang);</script></body></html>
